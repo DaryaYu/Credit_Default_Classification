@@ -20,8 +20,7 @@ X = bank_df.drop('default_payment_next_month', axis=1)
 y = bank_df['default_payment_next_month'] 
 
 model=Pipeline([('preprocessor', MinMaxScaler()), 
-	('classifier', XGBClassifier(scale_pos_weight=4, eta=0.1, eval_metric='auc', max_depth=4, min_child_weight=3, subsample=1.0,
-                     n_estimators=100))])
+	('classifier', XGBClassifier(scale_pos_weight=4, tree_method='hist', grow_policy='lossguide', max_depth=3, n_estimators=100))])
 
 model.fit(X, y)
 
