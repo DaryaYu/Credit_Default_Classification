@@ -27,7 +27,7 @@ def predict():
         output = 'No'
         probability = probability[0][0]
 
-    prediction_text_result = 'Will the person default on the next month payment?\n- {} with {:2.2%} probability.'.format(output, probability)
+    prediction_text_result = 'Will the person default on the next month payment?\n- {}, with probability {:2.2%}.'.format(output, probability)
     
     if request.is_xhr:
         return jsonify({'prediction_text': prediction_text_result})
